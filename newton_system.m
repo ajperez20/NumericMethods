@@ -18,6 +18,32 @@ function [x, iter] = newton_system(f, J, x0, tol, max_iter)
     %   Muestra por pantalla:
     %       - Resultados y error en cada iteración.
     %       - Resultado final y error al converger o al alcanzar el máximo de iteraciones.
+    %
+    %   Ejemplo de uso:
+    %       % Definir el sistema no lineal:
+    %       % f1(x1,x2) = x1^2 + x2^2 - 4 = 0
+    %       % f2(x1,x2) = exp(x1) + x2 - 1 = 0
+    %
+    %       % Definir la función del sistema
+    %       f = @(x) [x(1)^2 + x(2)^2 - 4; exp(x(1)) + x(2) - 1];
+    %
+    %       % Definir la matriz Jacobiana (derivadas parciales)
+    %       J = @(x) [2*x(1), 2*x(2); exp(x(1)), 1];
+    %
+    %       % Punto inicial
+    %       x0 = [1; 1];
+    %
+    %       % Parámetros del método
+    %       tol = 1e-6;
+    %       max_iter = 50;
+    %
+    %       % Llamar al método de Newton
+    %       [solucion, iteraciones] = newton_system(f, J, x0, tol, max_iter);
+    %
+    %       % Mostrar resultados
+    %       disp('Solución encontrada:');
+    %       disp(solucion);
+    %       disp(['Iteraciones realizadas: ', num2str(iteraciones)]);
 
     x = x0; % Inicializamos el vector solución
     iter = 0;
@@ -72,5 +98,4 @@ function [x, iter] = newton_system(f, J, x0, tol, max_iter)
 
     % Opcionalmente, puedes lanzar un error si la falta de convergencia es crítica
     % error('No se alcanzó la convergencia después de %d iteraciones.', max_iter);
-
 end
