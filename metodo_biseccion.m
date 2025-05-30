@@ -45,7 +45,7 @@ function [raiz, iteraciones] = metodo_biseccion(f, intervalo, tolerancia)
             reemplazo = '---';
         end
 
-        fprintf('%d\t [%.6f, %.6f]\t %.6f\t %.6f\t %.6f\t %s\n', ...
+        fprintf('%d\t [%.9f, %.9f]\t %.9f\t %.9f\t %.9f\t %s\n', ...
                 iteraciones, a, b, raiz, f(raiz), error_actual, reemplazo);
 
         % Criterio de parada
