@@ -32,7 +32,7 @@ function [raiz, iteraciones] = metodo_biseccion(f, intervalo, tolerancia)
 
     while true
         raiz = (a + b) / 2;
-        error_actual = abs(raiz - raiz_anterior);
+        error_actual = abs(b - a);
 
         % Determinar qué variable se reemplazará
         if iteraciones > 0
@@ -49,7 +49,7 @@ function [raiz, iteraciones] = metodo_biseccion(f, intervalo, tolerancia)
                 iteraciones, a, b, raiz, f(raiz), error_actual, reemplazo);
 
         % Criterio de parada
-        if f(raiz) == 0 || (b - a)/2 < tolerancia
+        if f(raiz) == 0 || error_actual < tolerancia
             break;
         end
 
